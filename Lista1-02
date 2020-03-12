@@ -1,0 +1,44 @@
+Program gp02 ;
+
+label 1,2,3;
+var cod:integer;
+var value:real;
+
+Begin //1
+  write('Digite o valor do produto: ');
+  readln(value);
+	write('Digite o código do produto: ');
+1:  readln(cod);
+  
+  if (cod>0) then
+  	Begin //2
+//código 1
+  	    if cod = 1 then
+  	    	begin //3
+  	    		writeln('Produto do Sul - valor: ', value);
+  	    		goto 3;
+  	    	end; //3
+//mesma resposta	
+				if (cod>9) and (cod<14) then				
+					begin //4
+						goto 2;
+					end; //4
+				if (cod<5) and (cod>1) then
+					begin //5
+					  2: writeln('Produto do Norte - valor: ', value);
+					  goto 3;
+					end //5
+//else
+				else
+				begin //else	
+					writeln('Produto importado - valor: ', value);
+					goto 3;
+				end; //else			
+  	End //2
+//else do begin #2  	
+  	else  //pede pra repetir o código, que deve ser maior que 0
+  	writeln('O código do produto deve ser maior que 0, por favor, digite novamente: ');
+  	goto 1;
+//fim do else #2
+  	3: writeln('Fim do programa.'); //goto 3; finaliza o programa
+End. //1
