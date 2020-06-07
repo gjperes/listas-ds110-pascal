@@ -143,6 +143,10 @@ Begin
     //finaliza cálculo de mês, abaixo realiza cálculo de dias
     if (mes=4) or (mes=6) or (mes=9) or (mes=11)then
     resdia:=resdia+30
+    else if (mes=2) and (bissexto:=1) then
+    resdia:=resdia+29
+    else if (mes=2) and (bissexto:=0) then
+    resdia:=resdia+28
     else
     resdia:=resdia+31; 
   end;
