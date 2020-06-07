@@ -1,0 +1,67 @@
+Program N1GABRIELPERES03;
+
+//PRECISA OTIMIZAR O CÓDIGO
+//3) FUP que leia três números e mostre-os em ordem decrescente.
+
+var num1, num2, num3, maior, menor, meio:integer;
+
+Begin
+  write('digite um número: ');
+  read(num1);
+  write('digite um número: ');
+  read(num2);
+  write('digite um número: ');
+  read(num3);
+  
+  if (num1>num2) and (num1>num3) then
+  begin
+    if num2>num3 then
+    begin
+      maior:=num1;
+      meio:=num2;
+      menor:=num3;
+    end
+    else
+    begin
+      maior:=num1;
+      meio:=num3;
+      menor:=num2;
+    end;
+  end
+  else if (num2>num1) and (num2>num3) then
+  begin
+    if num1>num3 then
+    begin
+      maior:=num2;
+      meio:=num1;
+      menor:=num3;
+    end
+    else
+    begin
+      maior:=num2;
+      meio:=num3;
+      menor:=num1;
+    end;
+  end
+  
+  else if (num3>num1) and (num3>num2) then
+  begin
+    if (num1>num2) then
+    begin
+      maior:=num3;
+      meio:=num1;
+      menor:=num2;
+    end
+    else
+    begin
+      maior:=num3;
+      meio:=num2;
+      menor:=num1;
+    end;
+  end;
+  
+  writeln(maior);
+  writeln(meio);
+  writeln(menor);
+  
+End.
