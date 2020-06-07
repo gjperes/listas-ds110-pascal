@@ -1,0 +1,49 @@
+Program N1GABRIELPERES06;
+
+//PRECISO OTIMIZAR O CÓDIGO
+
+var n1,n2,res:integer;
+op:string;
+
+Begin
+  //ler vars
+  write('digite n1: ');
+  read(n1);
+  write('digite n2: ');
+  read(n2);
+  write('digite a op. - use * / + - : ');
+  read(op);
+  //soma
+  if (op='+') then
+  begin
+    res:=n1+n2;
+    write(res);
+  end
+  else
+  begin
+    //subt
+    if (op='-') then
+    begin
+      res:=n1-n2;
+      write(res);
+    end
+    else
+    //div
+    if (op='/') then
+    begin
+      res:=n1 div n2;
+      write(res);
+    end
+    else
+    //mult
+    if (op='*') then
+    begin
+      res:=n1*n2;
+      write(res);
+    end
+    else
+    begin
+      writeln('op inválido, tente novamente!');
+    end;
+  end;
+End.
