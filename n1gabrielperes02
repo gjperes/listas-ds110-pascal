@@ -1,0 +1,50 @@
+Program N1GABRIELPERES02;
+//GABRIEL JESUS PERES
+
+//FUP que, tendo como entrada o preço e o código de origem de um produto, mostre o preço junto com a
+//sua procedência. Caso o código não seja nenhum dos especificados, indicar que o produto é importado.
+//Use a tabela abaixo:
+//Código de origem Procedência
+//1 Sul
+//Maior que 1 e menor que 5 Norte
+//Maior que 4 e menor que 10 Sudeste
+//Maior que 9 e menor que 14 Norte
+//Maior que 14 Outra Região
+
+var p:real;
+cod:integer;
+
+Begin
+  
+  write('Código: ');
+  read(cod);
+  while (cod<=0) do
+  begin
+    write('Código: ');
+    read(cod);
+  end;
+  
+  write('Preço: ');
+  read(p);
+  while (p<0) do
+  begin
+    write('Preço: ');
+    read(p);
+  end;
+  
+  if (cod=1) then
+  write('sul: ',p)
+  
+  else if (cod>1) and (cod<5) then
+  write('norte: ',p)
+  
+  else if (cod>4) and (cod<10) then
+  write('sudeste: ',p)
+  
+  else if (cod>9) and (cod<14) then
+  write('nordeste: ',p)
+  
+  else if (cod>=14) then
+  write('importado: ',p);
+  
+End.
