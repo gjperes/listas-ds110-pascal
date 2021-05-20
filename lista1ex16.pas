@@ -1,5 +1,5 @@
 Program lista1ex16 ;
-//Feito por Gabriel Jesus Peres - GRR20204443
+//Feito por Gabriel
 
 var num,chu,cont:integer;
 
@@ -7,11 +7,11 @@ Begin
   
 	cont:=1;  // cont de tentativas
 	
-	writeln('Pessoa 1, digite um número: ');
+	writeln('Pessoa 1, digite um nÃºmero: ');
   readln(num);
   CLRSCR;
   
-  writeln('Pessoa 2, digite um número de chute: ');
+  writeln('Pessoa 2, digite um nÃºmero de chute: ');
   readln(chu);
   
   while(num<>chu) do
@@ -21,14 +21,14 @@ Begin
   	if (num<chu) then
   	writeln('O chute foi alto, tente novamente!');
   
-  	writeln('Pessoa 2, digite um número de chute novamente: ');
+  	writeln('Pessoa 2, digite um nÃºmero de chute novamente: ');
   	readln(chu);
   	
   	cont:=cont+1;
   	end;
 	
-	writeln('Acertou. A resposta é ', num);
-	writeln('O número de tentativas foi de ', cont);
+	writeln('Acertou. A resposta Ã© ', num);
+	writeln('O nÃºmero de tentativas foi de ', cont);
 	
 	writeln('Digite Enter para encerrar');
 	readln;
