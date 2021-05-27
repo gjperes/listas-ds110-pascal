@@ -2,24 +2,24 @@ Program bissexto ;
 //Feito por Gabriel
 
 //tem que ser divisel 4 - mod 0
-//n„o pode ser divisivel por 100 
+//n√£o pode ser divisivel por 100 
 //seja divisivel por 400
   
 var aa:integer;
-		bissexto:boolean;
+bissexto:boolean;
 
 Begin
 writeln('Insira um ano: ');
 readln(aa);
-	if (aa mod 4 = 0) and (aa mod 100 <> 0) then //divisivel por 4 mas n„o por 100
+	if (aa mod 4 = 0) and (aa mod 100 <> 0) then //divisivel por 4 mas n√£o por 100
 		bissexto:=true
 	else if (aa mod 100 = 0) and (aa mod 400 = 0) then
 		bissexto:=true
 	else    			
 		bissexto:=false;
-//apresentaÁ„o dos resultados	 
+//apresenta√ß√£o dos resultados	 
 	if (bissexto=true) then
-	writeln(aa,' È um ano bissexto')//BISSEXTO
+	writeln(aa,' √© um ano bissexto')//BISSEXTO
 	else
-	writeln(aa,' N√O È um ano bissexto');//N√O BISSEXTO
+	writeln(aa,' N√ÉO √© um ano bissexto');//N√ÉO BISSEXTO
 End.
