@@ -1,97 +1,98 @@
 Program N05_FABIOFERREIRASILVA_GABRIELJPERES;
-//F·bio Ferreira da Silva - GRR20193963
+//F√°bio Ferreira da Silva - GRR20193963
 //Gabriel Jesus Peres - GRR20204443
 
-//FaÁa um programa que leia uma sÈrie de CPFís e informe se o CPF lido È v·lido ou n„o. CPF
-//ì00000000000î (onze zeros) encerra o programa.
+//Fa√ßa um programa que leia uma s√©rie de CPF‚Äôs e informe se o CPF lido √© v√°lido ou n√£o. CPF
+//‚Äú00000000000‚Äù (onze zeros) encerra o programa.
 
-//Se o dÌgito J for diferente do dÈcimo dÌgito do CPF lido, mostrar CPF digitado inv·lido e o digito J, sen„o
-//Se o dÌgito K for diferente do dÈcimo primeiro dÌgito do CPF lido, mostrar CPF lido inv·lido e o dÌgito K,
-//sen„o CPF lido V·lido.
+//Se o d√≠gito J for diferente do d√©cimo d√≠gito do CPF lido, mostrar CPF digitado inv√°lido e o digito J, sen√£o
+//Se o d√≠gito K for diferente do d√©cimo primeiro d√≠gito do CPF lido, mostrar CPF lido inv√°lido e o d√≠gito K,
+//sen√£o CPF lido V√°lido.
 
 uses ex2modbiblio;
 
-//PROCEDURE RECEBE CPF[10] OU CPF[11] COMO -> (Y) E RESULTADO DA SOMAT”RIA -> (RESCALC), VALIDA E DEVOLVE COM -> (VALIDO)
+//PROCEDURE RECEBE CPF[10] OU CPF[11] COMO -> (Y) E RESULTADO DA SOMAT√ìRIA -> (RESCALC), VALIDA E DEVOLVE COM -> (PRVAL)
 procedure prvalido (y,rescalc:integer; var prval:boolean);
 	
 var x:integer;
 	begin
 		if (rescalc=0) or (rescalc=1) and (y = 0) then
-				prval:=true
-			else if (rescalc>1) and (rescalc<=10) then
-					begin
-						x:=11-rescalc;
-						if (y=x) then
-						prval:=true;
-					end
-			else
-				prval:=false;
+			prval:=true
+		else if (rescalc>1) and (rescalc<=10) then
+			begin
+			x:=11-rescalc;
+				if (y=x) then
+				prval:=true;
+			end
+		else
+			prval:=false;
 	end;
 
 // INICIO DO PROGRAMA
 
 var cpf1:string[11];
-		cpf,resmult:array[1..11] of integer;
-		soma, cont, mult, resmod, coderro:integer;
-		valido,verencerra:boolean;
+	cpf,resmult:array[1..11] of integer;
+	soma, cont, mult, resmod, coderro:integer;
+	valido,verencerra:boolean;
 
 Begin{0}
 	
-	repeat
-
-		writeln('Digite um CPF v·lido (11 zeros encerra o programa): ');
+repeat
+writeln;
+	//RECEBE OS DADOS
+		writeln('Digite um CPF (11 zeros encerra o programa): ');
 		read(cpf1);
-
-			while length(cpf1)<11 do
+		//VALIDA O TAMANHO DO CPF
+			while length(cpf1)<11 do //enquanto n√£o for 11 d√≠gitos, inv√°lido.
 			begin
-				writeln('O CPF precisa ter 11 dÌgitos no mÌnimo. Digite um CPF v·lido (11 zeros encerra o programa): ');
+				writeln('O CPF precisa ter 11 d√≠gitos. Digite um CPF (11 zeros encerra o programa): ');
 				read(cpf1);
 			end;
 
-		verencerra:=false;
-	
+//CONVERTE OS STRINGS EM INT
 		for cont:=1 to 11 do
 		begin
 			val(cpf1[cont],cpf[cont],coderro);
-			//VERIFICA SE S√O TODOS 0's
-			if (cpf[cont]<>0) then
-			verencerra:=true;
+			//VERIFICA SE H√Å ALGUM ERRO (SEM ERROS=0)
+			if (coderro<>0) then
+				verencerra:=true;
 		end;
 
-		if (verencerra=true) then
-		begin
-			//VALIDA J
+if not verencerra then
+begin{1}
+//VALIDA J
+	soma:=0;
+	for cont:=1 to 9 do //CALCULA MULTIPLOS DE A -> I
+	begin{2}
+		mult:=11-cont;
+		resmult[cont]:=cpf[cont]*mult;
+		soma:=soma+resmult[cont];
+	end;{2}
+	resmod:=soma mod 11; //RESTO DO RESULTADO DA SOMAT√ìRIA DOS MULT. DE A -> I
+	prvalido(cpf[10],resmod,valido);//PROCEDURE QUE VALIDA O DIGITO [J]
+		if valido=false then
+			writeln('ATEN√á√ÉO! -> CPF: ',cpf1,' √© INV√ÅLIDO. D√≠gito verificador inv√°lido: I - ',cpf[10])
+		else //CASO J = VALIDO -> VALIDA K
+		begin{3}
 			soma:=0;
-			for cont:=1 to 9 do
-				begin
-					mult:=11-cont;
+			for cont:=1 to 10 do //CALCULA MULTIPLOS DE A -> J
+				begin{4}
+					mult:=12-cont;
 					resmult[cont]:=cpf[cont]*mult;
-					soma:=soma+resmult[cont];
-				end;
-			resmod:=soma mod 11;
-			prvalido(cpf[10],resmod,valido);
+					soma:=soma+resmult[cont];	
+				end;{4}
+			resmod:=soma mod 11;//RESTO DO RESULTADO DA SOMAT√ìRIA DOS MULT. DE A -> J
+			prvalido(cpf[11],resmod,valido);//PROCEDURE QUE VALIDA O DIGITO [K]
 			if valido=false then
-				writeln('CPF: ',cpf1,' È inv·lido. DÌgito verificador inv·lido: ',cpf[10])
+				writeln('ATEN√á√ÉO! -> CPF: ',cpf1,' √© INV√ÅLIDO. D√≠gito verificador inv√°lido: J - ',cpf[11])
 			else
-			//CASO J = VALIDO -> VALIDA K
-				begin
-					soma:=0;
-					for cont:=1 to 10 do
-						begin
-							mult:=12-cont;
-							resmult[cont]:=cpf[cont]*mult;
-							soma:=soma+resmult[cont];	
-						end;
-					resmod:=soma mod 11;
-					prvalido(cpf[11],resmod,valido);
-						if valido=false then
-							writeln('CPF: ',cpf1,' È inv·lido. DÌgito verificador inv·lido: ',cpf[11])
-						else
-							writeln('CPF v·lido.');
-				end;
-		end;
-	
-	until verencerra=false;
-	writeln('11 zeros, encerrando o programa!');
+				writeln('CPF V√ÅLIDO!');
+		end;{3}
+end{1}
+else
+	writeln('CPF com Caracteres Inv√°lidos!');
+
+until cpf1='00000000000';
+writeln('11 zeros, encerrando o programa!');
 
 End.{0}
