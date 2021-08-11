@@ -1,11 +1,8 @@
-Program N03_FABIOFERREIRASILVA_GABRIELJPERES ;
+Program N03;
 
-//Fábio Ferreira da Silva - GRR20193963
-//Gabriel Jesus Peres - GRR20204443
-
-//FUP que leia dia, mês e ano de nascimento (VALIDAR, utilizando a VALIDATA da UNIT EX2MODBIBLIOencaminhada no dia 27/05/2021)
-//após leia dia, mês e ano do dia de hoje (VALIDAR, utilizando a VALIDATA da UNIT EX2MODBIBLIO.
-//Após calcule e mostre a idade em anos, em meses e em dias. (Ex.:15 anos, 3 meses e 7 dias).
+//FUP que leia dia, mÃªs e ano de nascimento (VALIDAR, utilizando a VALIDATA da UNIT EX2MODBIBLIOencaminhada no dia 27/05/2021)
+//apÃ³s leia dia, mÃªs e ano do dia de hoje (VALIDAR, utilizando a VALIDATA da UNIT EX2MODBIBLIO.
+//ApÃ³s calcule e mostre a idade em anos, em meses e em dias. (Ex.:15 anos, 3 meses e 7 dias).
 
 //Leu 20/02/2000 (nascimento) e 28/05/2021 (dia de hoje)
 //Anos=anoatual-anonasc=2021-2000 = 21 anoscalc=anos
@@ -15,21 +12,21 @@ Program N03_FABIOFERREIRASILVA_GABRIELJPERES ;
 
 //Leu 10/08/2000 e 28/05/2021
 //Anos = 2021-2000 = 21 anoscalc=anos
-//Meses=05-08 = -3 mesescalc=meses (negativo ?) mesescalc=meses+12 = 9 e anoscalc=anos – 1 = 20
+//Meses=05-08 = -3 mesescalc=meses (negativo ?) mesescalc=meses+12 = 9 e anoscalc=anos â€“ 1 = 20
 //Dias=28-10 = 18
 //Mostre anoscalc....etc...
 
 //Leu 31/07/2000 e 28/05/2021
 //Anos=2021-2000 = 21 anoscalc=anos
 //Meses=05-07 = -2 negativo mesescal=meses+12 = 10 e anoscalc=anos-1
-//Dias=28-31 = -3 negativo diascalc=dias+30(numero de dias do mês anterior da data atual ---
+//Dias=28-31 = -3 negativo diascalc=dias+30(numero de dias do mÃªs anterior da data atual ---
 //mesant=mesatual-1 = 4)=27 e mesescal=mesescal-1 (se der negativo somar 12 e tirar 1 do anoscalc)
 //Mostre anoscalc,...etc
 
-//OBSERVAÇÃO 1 use a function diamax da UNIT EX2MODBIBLIO encaminhada no dia 27/05/2021 para
-//achar o número de dias máximo do mês anterior da data atual
+//OBSERVAÃ‡ÃƒO 1 use a function diamax da UNIT EX2MODBIBLIO encaminhada no dia 27/05/2021 para
+//achar o nÃºmero de dias mÃ¡ximo do mÃªs anterior da data atual
 
-//OBSERVAÇÃO 2 se a data atual o mês for janeiro(1) o mês anterior é 12.
+//OBSERVAÃ‡ÃƒO 2 se a data atual o mÃªs for janeiro(1) o mÃªs anterior Ã© 12.
 
 uses ex2modbiblio;
 
@@ -41,7 +38,7 @@ Begin{1}
 repeat
 writeln('Digite o dia de nasc.: ');
 read(dd_nasc);
-writeln('Digite o mês de nasc.: ');
+writeln('Digite o mÃªs de nasc.: ');
 read(mm_nasc);
 writeln('Digite o ano de nasc.: ');
 read(aa_nasc);
@@ -52,7 +49,7 @@ until (validata(dd_nasc,mm_nasc,aa_nasc)=true);
 repeat
 writeln('Digite o dia atual: ');
 read(dd_atual);
-writeln('Digite o mês atual: ');
+writeln('Digite o mÃªs atual: ');
 read(mm_atual);
 writeln('Digite o ano atual: ');
 read(aa_atual);
@@ -101,7 +98,7 @@ writeln('diascalc: ',diascalc);
 	end;
 	
 //===========EXIBE O RESULTADO======================	
-writeln('Sua idade é de: ',anoscalc,' anos, ',mesescalc,' meses e ',diascalc,' dias.');
+writeln('Sua idade Ã© de: ',anoscalc,' anos, ',mesescalc,' meses e ',diascalc,' dias.');
 
 //===========PROCEDURE PARA TERMINAR======================
 
