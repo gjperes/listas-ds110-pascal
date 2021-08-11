@@ -1,16 +1,14 @@
-Program N06_FABIOFERREIRASILVA_GABRIELJPERES;
-//Fábio Ferreira da Silva - GRR20193963
-//Gabriel Jesus Peres - GRR20204443
+Program N06;
 
-//Faça um programa que leia uma série de no máximo 40 nomes (30 caracteres),
-//encerrada por nome igual a “FIM”, colocando-os em um vetor. Após o encerramento
+//FaÃ§a um programa que leia uma sÃ©rie de no mÃ¡ximo 40 nomes (30 caracteres),
+//encerrada por nome igual a â€œFIMâ€, colocando-os em um vetor. ApÃ³s o encerramento
 //da leitura, mostrar os nomes lidos menores ou iguais a LUIZ SALGADO, em
-//ordem alfabética crescente (A ? L) e os nomes maiores que LUIZ SALGADO, em
-//ordem alfabética decrescente (Z ? M).
+//ordem alfabÃ©tica crescente (A ? L) e os nomes maiores que LUIZ SALGADO, em
+//ordem alfabÃ©tica decrescente (Z ? M).
 
 uses ex2modbiblio;
 
-procedure tamanho_certo(nome:string[30]); //procedure recebe o nome e devolve nele mesmo, com os espaços se necessário
+procedure tamanho_certo(nome:string[30]); //procedure recebe o nome e devolve nele mesmo, com os espaÃ§os se necessÃ¡rio
 	var tamanho,auxiliar:integer;
 begin
 	tamanho:=length(nome);
@@ -34,10 +32,10 @@ qtd_nomes:=0;
 	nome[qtd_nomes]:=upcase(nome[qtd_nomes]);//UPCASE NOME
 		if nome[qtd_nomes]='FIM' then
 			chave:=true;
-	tamanho_certo(nome[qtd_nomes]);//ADICIONA ESPAÇOS SE NECESSÁRIO
+	tamanho_certo(nome[qtd_nomes]);//ADICIONA ESPAÃ‡OS SE NECESSÃRIO
 	until (chave) or (qtd_nomes>40);
 
-	if qtd_nomes=41 then//CASO SEJAM 40 REPETIÇÕES ACIMA CONT SERÁ 41 NO FINAL, LOGO:
+	if qtd_nomes=41 then//CASO SEJAM 40 REPETIÃ‡Ã•ES ACIMA CONT SERÃ 41 NO FINAL, LOGO:
 		qtd_nomes:=qtd_nomes-1;
 
 	cont1:=qtd_nomes;	
@@ -54,14 +52,14 @@ repeat
 				nome[cont_aux]:=nome[cont_aux+1];
 				nome[cont_aux+1]:=nome_aux;
 				chave:=false;//SE TIVER ALGUMA TROCA, AINDA FALTA ORGANIZAR
-				feito:=1;//COMO TROCOU, PRECISA RECOMEÇAR, ATÉ NÃO TROCAR
+				feito:=1;//COMO TROCOU, PRECISA RECOMEÃ‡AR, ATÃ‰ NÃƒO TROCAR
 			end
 		else
-			feito:=feito+1;//SE NÃO HOUVE TROCA, DOIS ESTÃO OK
-until (chave);//SE NÃO OCORRER NENHUMA TROCA, TUDO ESTÁ OK
+			feito:=feito+1;//SE NÃƒO HOUVE TROCA, DOIS ESTÃƒO OK
+until (chave);//SE NÃƒO OCORRER NENHUMA TROCA, TUDO ESTÃ OK
 
-nome_aux:='LUIZ SALGADO'; //define o string de comparação
-tamanho_certo(nome_aux); //corrige o string de comparação(preferi não digitar os espaços kkk)
+nome_aux:='LUIZ SALGADO'; //define o string de comparaÃ§Ã£o
+tamanho_certo(nome_aux); //corrige o string de comparaÃ§Ã£o(preferi nÃ£o digitar os espaÃ§os kkk)
 
 //EXIBE OS NOMES CRESCENTE (A > L)
 cont_aux:=1;
