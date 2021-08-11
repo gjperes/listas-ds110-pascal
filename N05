@@ -1,6 +1,4 @@
-Program N05_FABIOFERREIRASILVA_GABRIELJPERES;
-//Fábio Ferreira da Silva - GRR20193963
-//Gabriel Jesus Peres - GRR20204443
+Program N05;
 
 //Faça um programa que leia uma série de CPF’s e informe se o CPF lido é válido ou não. CPF
 //“00000000000” (onze zeros) encerra o programa.
