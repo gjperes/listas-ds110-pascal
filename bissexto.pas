@@ -18,8 +18,8 @@ readln(aa);
 	else    			
 		bissexto:=false;
 //apresentação dos resultados	 
-	if (bissexto=true) then
-	writeln(aa,' é um ano bissexto')//BISSEXTO
+	if bissexto then
+		writeln(aa,' é um ano bissexto')//BISSEXTO
 	else
-	writeln(aa,' NÃO é um ano bissexto');//NÃO BISSEXTO
+		writeln(aa,' NÃO é um ano bissexto');//NÃO BISSEXTO
 End.
