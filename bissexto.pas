@@ -1,7 +1,7 @@
 Program bissexto ;
 //Feito por Gabriel
 
-//tem que ser divisel 4 - mod 0
+//tem que ser divisivel 4 - mod 0
 //não pode ser divisivel por 100 
 //seja divisivel por 400
   
